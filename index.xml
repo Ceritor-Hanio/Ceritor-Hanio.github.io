@@ -6,7 +6,27 @@
         <description>Recent content on Hanio&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>English</language>
-        <lastBuildDate>Sat, 18 Feb 2023 19:16:22 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 18 Feb 2023 23:18:29 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>一点交流</title>
+        <link>https://example.com/p/%E4%B8%80%E7%82%B9%E4%BA%A4%E6%B5%81/</link>
+        <pubDate>Sat, 18 Feb 2023 23:18:29 +0800</pubDate>
+        
+        <guid>https://example.com/p/%E4%B8%80%E7%82%B9%E4%BA%A4%E6%B5%81/</guid>
+        <description>&lt;p&gt;听完叉姐的话，呆呆地愣了半个小时。我不知道我失去了什么，目标，理由，还是别的什么。可能是我缺乏自信才希冀着通过学OI而不同于人。我后面会花几天思考如何平衡竞赛和文化课的。&lt;/p&gt;
+&lt;p&gt;哈哈，感觉叉姐的到来（精神上）像是给熬夜期待太阳的孩子浇了场雨，有人可能开始考虑乖乖回去睡觉（学文化课）了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://image.baidu.com/search/down?url=http://tvax2.sinaimg.cn/large/008gHy5vgy1hb81p5fvwqj304e0b40sp.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;008gHy5vgy1gwcf27t7mvj304e0b40sp&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Test</title>
         <link>https://example.com/p/test/</link>
         <pubDate>Sat, 18 Feb 2023 19:16:22 +0800</pubDate>
@@ -76,24 +96,6 @@
 &lt;p&gt;Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.&lt;/p&gt;
 &lt;p&gt;Learn more and contribute on &lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title></title>
-        <link>https://example.com/p/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://example.com/p/</guid>
-        <description>&lt;p&gt;听完叉姐的话，呆呆地愣了半个小时。我不知道我失去了什么，目标，理由，还是别的什么。可能是我缺乏自信才希冀着通过学OI而不同于人。我后面会花几天思考如何平衡竞赛和文化课的。&lt;/p&gt;
-&lt;p&gt;哈哈，感觉叉姐的到来（精神上）像是给熬夜期待太阳的孩子浇了场雨，有人可能开始考虑乖乖回去睡觉（学文化课）了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://tvax2.sinaimg.cn/large/008gHy5vgy1gwcf27t7mvj304e0b40sp.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
