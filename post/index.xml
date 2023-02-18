@@ -33,14 +33,6 @@
 &lt;p&gt;2023.01.20 农历腊月二十八 ‌‌‌&lt;/p&gt;
 </description>
         </item>
-        <item>
-        <title>My First Post</title>
-        <link>https://example.com/p/my-first-post/</link>
-        <pubDate>Fri, 27 Jan 2023 11:55:29 +0800</pubDate>
-        
-        <guid>https://example.com/p/my-first-post/</guid>
-        <description></description>
-        </item>
         
     </channel>
 </rss>
