@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://example.com/</loc>
-    <lastmod>2023-02-18T23:18:29+08:00</lastmod>
+    <lastmod>2023-03-25T21:38:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -21,13 +21,13 @@
                 />
   </url><url>
     <loc>https://example.com/post/</loc>
-    <lastmod>2023-02-18T23:18:29+08:00</lastmod>
+    <lastmod>2023-03-25T21:38:37+08:00</lastmod>
+  </url><url>
+    <loc>https://example.com/p/%E5%90%9F%E8%B5%8F%E9%9B%BE%E9%9B%A8%E8%8A%B1%E4%B8%9B/</loc>
+    <lastmod>2023-03-25T21:38:37+08:00</lastmod>
   </url><url>
     <loc>https://example.com/p/%E4%B8%80%E7%82%B9%E4%BA%A4%E6%B5%81/</loc>
     <lastmod>2023-02-18T23:18:29+08:00</lastmod>
-  </url><url>
-    <loc>https://example.com/p/test/</loc>
-    <lastmod>2023-02-18T19:16:22+08:00</lastmod>
   </url><url>
     <loc>https://example.com/p/%E5%85%B3%E4%BA%8E%E5%AE%B6%E5%BA%AD%E6%95%99%E8%82%B2%E7%9A%84%E8%83%A1%E4%B9%B1%E6%80%9D%E8%80%83/</loc>
     <lastmod>2023-01-27T15:04:36+08:00</lastmod>
