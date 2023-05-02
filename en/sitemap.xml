@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://example.com/</loc>
-    <lastmod>2023-03-25T21:38:37+08:00</lastmod>
+    <lastmod>2023-05-02T10:07:51+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -20,20 +20,14 @@
                 href="https://example.com/"
                 />
   </url><url>
+    <loc>https://example.com/p/00.%E7%AB%A5%E5%B9%B4%E5%8A%A8%E7%94%BB%E7%89%87/</loc>
+    <lastmod>2023-05-02T10:07:51+08:00</lastmod>
+  </url><url>
     <loc>https://example.com/post/</loc>
-    <lastmod>2023-03-25T21:38:37+08:00</lastmod>
-  </url><url>
-    <loc>https://example.com/p/%E5%90%9F%E8%B5%8F%E9%9B%BE%E9%9B%A8%E8%8A%B1%E4%B8%9B/</loc>
-    <lastmod>2023-03-25T21:38:37+08:00</lastmod>
-  </url><url>
-    <loc>https://example.com/p/%E4%B8%80%E7%82%B9%E4%BA%A4%E6%B5%81/</loc>
-    <lastmod>2023-02-18T23:18:29+08:00</lastmod>
-  </url><url>
-    <loc>https://example.com/p/%E5%85%B3%E4%BA%8E%E5%AE%B6%E5%BA%AD%E6%95%99%E8%82%B2%E7%9A%84%E8%83%A1%E4%B9%B1%E6%80%9D%E8%80%83/</loc>
-    <lastmod>2023-01-27T15:04:36+08:00</lastmod>
+    <lastmod>2023-05-02T10:07:51+08:00</lastmod>
   </url><url>
     <loc>https://example.com/tags/</loc>
-    <lastmod>2023-01-15T00:02:53+08:00</lastmod>
+    <lastmod>2023-05-02T10:07:51+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -49,6 +43,18 @@
                 hreflang="en"
                 href="https://example.com/tags/"
                 />
+  </url><url>
+    <loc>https://example.com/tags/%E5%9B%9E%E5%BF%86/</loc>
+    <lastmod>2023-05-02T10:07:51+08:00</lastmod>
+  </url><url>
+    <loc>https://example.com/p/%E5%90%9F%E8%B5%8F%E9%9B%BE%E9%9B%A8%E8%8A%B1%E4%B8%9B/</loc>
+    <lastmod>2023-03-25T21:38:37+08:00</lastmod>
+  </url><url>
+    <loc>https://example.com/p/%E4%B8%80%E7%82%B9%E4%BA%A4%E6%B5%81/</loc>
+    <lastmod>2023-02-18T23:18:29+08:00</lastmod>
+  </url><url>
+    <loc>https://example.com/p/%E5%85%B3%E4%BA%8E%E5%AE%B6%E5%BA%AD%E6%95%99%E8%82%B2%E7%9A%84%E8%83%A1%E4%B9%B1%E6%80%9D%E8%80%83/</loc>
+    <lastmod>2023-01-27T15:04:36+08:00</lastmod>
   </url><url>
     <loc>https://example.com/p/%E5%B9%B4%E6%9C%AB%E5%B0%8F%E8%AE%B0/</loc>
     <lastmod>2023-01-15T00:02:53+08:00</lastmod>
@@ -85,8 +91,6 @@
                 href="https://example.com/about/"
                 />
   </url><url>
-    <loc>https://example.com/p/00.%E7%AB%A5%E5%B9%B4%E5%8A%A8%E7%94%BB%E7%89%87/</loc>
-  </url><url>
     <loc>https://example.com/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -109,8 +113,6 @@
     <loc>https://example.com/search/</loc>
   </url><url>
     <loc>https://example.com/categories/test/</loc>
-  </url><url>
-    <loc>https://example.com/tags/%E5%9B%9E%E5%BF%86/</loc>
   </url><url>
     <loc>https://example.com/tags/%E6%80%9D%E8%80%83/%E5%AE%B6%E5%BA%AD%E5%85%B3%E7%B3%BB/</loc>
   </url><url>
