@@ -88,6 +88,10 @@
                 href="https://example.com/about/"
                 />
   </url><url>
+    <loc>https://example.com/p/</loc>
+  </url><url>
+    <loc>https://example.com/p/00.%E7%AB%A5%E5%B9%B4%E5%8A%A8%E7%94%BB%E7%89%87/</loc>
+  </url><url>
     <loc>https://example.com/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -110,6 +114,8 @@
     <loc>https://example.com/search/</loc>
   </url><url>
     <loc>https://example.com/categories/test/</loc>
+  </url><url>
+    <loc>https://example.com/tags/%E5%9B%9E%E5%BF%86/</loc>
   </url><url>
     <loc>https://example.com/tags/%E6%80%9D%E8%80%83/%E5%AE%B6%E5%BA%AD%E5%85%B3%E7%B3%BB/</loc>
   </url>
