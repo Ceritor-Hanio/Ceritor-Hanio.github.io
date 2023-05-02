@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://example.com/</loc>
-    <lastmod>2023-05-02T10:07:51+08:00</lastmod>
+    <lastmod>2023-05-02T10:15:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -20,14 +20,11 @@
                 href="https://example.com/"
                 />
   </url><url>
-    <loc>https://example.com/p/00.%E7%AB%A5%E5%B9%B4%E5%8A%A8%E7%94%BB%E7%89%87/</loc>
-    <lastmod>2023-05-02T10:07:51+08:00</lastmod>
-  </url><url>
     <loc>https://example.com/post/</loc>
-    <lastmod>2023-05-02T10:07:51+08:00</lastmod>
+    <lastmod>2023-05-02T10:15:41+08:00</lastmod>
   </url><url>
     <loc>https://example.com/tags/</loc>
-    <lastmod>2023-05-02T10:07:51+08:00</lastmod>
+    <lastmod>2023-05-02T10:15:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -44,6 +41,15 @@
                 href="https://example.com/tags/"
                 />
   </url><url>
+    <loc>https://example.com/p/%E4%B8%80%E4%BA%9B%E6%88%91%E5%B8%8C%E6%9C%9B%E4%B9%A6%E5%86%99%E4%BD%86%E9%99%90%E4%BA%8E%E6%97%B6%E9%97%B4%E7%BB%8F%E5%8E%86%E6%9A%82%E6%97%B6%E6%90%81%E7%BD%AE%E7%9A%84%E6%96%87%E7%AB%A0/</loc>
+    <lastmod>2023-05-02T10:15:41+08:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tags/%E6%97%A5%E8%AE%B0/</loc>
+    <lastmod>2023-05-02T10:15:41+08:00</lastmod>
+  </url><url>
+    <loc>https://example.com/p/00.%E7%AB%A5%E5%B9%B4%E5%8A%A8%E7%94%BB%E7%89%87/</loc>
+    <lastmod>2023-05-02T10:07:51+08:00</lastmod>
+  </url><url>
     <loc>https://example.com/tags/%E5%9B%9E%E5%BF%86/</loc>
     <lastmod>2023-05-02T10:07:51+08:00</lastmod>
   </url><url>
@@ -57,9 +63,6 @@
     <lastmod>2023-01-27T15:04:36+08:00</lastmod>
   </url><url>
     <loc>https://example.com/p/%E5%B9%B4%E6%9C%AB%E5%B0%8F%E8%AE%B0/</loc>
-    <lastmod>2023-01-15T00:02:53+08:00</lastmod>
-  </url><url>
-    <loc>https://example.com/tags/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2023-01-15T00:02:53+08:00</lastmod>
   </url><url>
     <loc>https://example.com/archives/</loc>
