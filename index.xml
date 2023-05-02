@@ -6,16 +6,7 @@
         <description>Recent content on Hanio&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>English</language>
-        <lastBuildDate>Sun, 30 Apr 2023 23:56:32 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Test</title>
-        <link>https://example.com/p/test/</link>
-        <pubDate>Sun, 30 Apr 2023 23:56:32 +0800</pubDate>
-        
-        <guid>https://example.com/p/test/</guid>
-        <description>&lt;p&gt;博客半自动更新测试！&lt;/p&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Sat, 25 Mar 2023 21:38:37 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>吟赏雾雨花丛</title>
         <link>https://example.com/p/%E5%90%9F%E8%B5%8F%E9%9B%BE%E9%9B%A8%E8%8A%B1%E4%B8%9B/</link>
         <pubDate>Sat, 25 Mar 2023 21:38:37 +0800</pubDate>
@@ -179,16 +170,8 @@
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/p/</guid>
-        <description>&lt;p&gt;·&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>00.童年动画片</title>
-        <link>https://example.com/p/00.%E7%AB%A5%E5%B9%B4%E5%8A%A8%E7%94%BB%E7%89%87/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://example.com/p/00.%E7%AB%A5%E5%B9%B4%E5%8A%A8%E7%94%BB%E7%89%87/</guid>
-        <description>&lt;p&gt;感觉我小时候好闲……现在更闲，还花时间整理和思考。后面再花点时间挨个评价一下吧，毕竟他们对我潜意识的形成有着重大作用。说起来，其实我没几部是完全看了的……&lt;/p&gt;
+        <description>&lt;hr&gt;
+&lt;p&gt;感觉我小时候好闲……现在更闲，还花时间整理和思考。后面再花点时间挨个评价一下吧，毕竟他们对我潜意识的形成有着重大作用。说起来，其实我没几部是完全看了的……&lt;/p&gt;
 &lt;h5 id=&#34;幼儿园&#34;&gt;幼儿园&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;飞哥与小佛 第一季 Phineas and Ferb Season 1&lt;/li&gt;
@@ -266,6 +249,15 @@
 &lt;li&gt;天才眼睛狗&lt;/li&gt;
 &lt;li&gt;怪兽大学&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title></title>
+        <link>https://example.com/p/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/p/</guid>
+        <description>&lt;p&gt;·&lt;/p&gt;
 </description>
         </item>
         <item>
