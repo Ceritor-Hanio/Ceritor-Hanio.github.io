@@ -123,8 +123,12 @@
   </url><url>
     <loc>https://example.com/categories/test/</loc>
   </url><url>
+    <loc>https://example.com/p/%E5%86%AC%E6%9C%88%E9%97%B2%E8%AF%9D/</loc>
+  </url><url>
     <loc>https://example.com/tags/%E6%80%9D%E8%80%83/%E5%AE%B6%E5%BA%AD%E5%85%B3%E7%B3%BB/</loc>
   </url><url>
     <loc>https://example.com/p/%E6%A8%A1%E6%9D%BF/</loc>
+  </url><url>
+    <loc>https://example.com/tags/%E7%94%9F%E6%B4%BB/</loc>
   </url>
 </urlset>
