@@ -1,10 +1,10 @@
 ---
-title: Links
+title: About
 menu:
     main: 
-        weight: 4
+        weight: 1
         params:
-            icon: link
+            icon: about
 
 comments: false
 ---
