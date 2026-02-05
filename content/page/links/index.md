@@ -24,5 +24,3 @@ links:
     website: https://www.typescriptlang.org
     image: ts-logo-128.jpg
 ```
-
-`image` field accepts both local and external images.
