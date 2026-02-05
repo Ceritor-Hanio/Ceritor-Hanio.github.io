@@ -1,12 +1,5 @@
 ---
-menu:
-    main:
-        name: Blog
-        weight: 2
-        params:
-            icon: home
 ---
-To use this feature, add `links` section to frontmatter.
 
 This page's frontmatter:
 
