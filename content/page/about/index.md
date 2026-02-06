@@ -11,16 +11,16 @@ comments: false
 
 <style>
 .resume-container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     font-family: inherit;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .resume-section {
-    margin-bottom: 2.5rem;
-    border-radius: 16px;
-    padding: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 18px;
+    padding: 2.5rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     backdrop-filter: blur(12px);
 }
@@ -46,30 +46,30 @@ comments: false
 }
 
 [data-scheme="dark"] .resume-section.traits {
-    background: rgba(120, 53, 15, 0.3);
+    background: rgba(120, 53, 15, 0.2);
     border: 1px solid rgba(180, 83, 9, 0.3);
 }
 
 [data-scheme="dark"] .resume-section.education {
-    background: rgba(30, 64, 175, 0.3);
+    background: rgba(30, 64, 175, 0.2);
     border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 [data-scheme="dark"] .resume-section.projects {
-    background: rgba(22, 101, 52, 0.3);
+    background: rgba(22, 101, 52, 0.2);
     border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 [data-scheme="dark"] .resume-section.skills {
-    background: rgba(88, 28, 135, 0.3);
+    background: rgba(88, 28, 135, 0.2);
     border: 1px solid rgba(147, 51, 234, 0.3);
 }
 
 .section-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--accent-color, #2563eb);
-    margin-bottom: 1.8rem;
+    margin-bottom: 2rem;
 }
 
 /* 个人特质 */
@@ -81,8 +81,8 @@ comments: false
 
 .trait-card {
     background: rgba(255, 255, 255, 0.85);
-    border-radius: 14px;
-    padding: 1.5rem;
+    border-radius: 16px;
+    padding: 1.75rem;
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     transition: transform 0.2s, box-shadow 0.2s;
     backdrop-filter: blur(10px);
@@ -98,18 +98,18 @@ comments: false
 }
 
 .trait-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
+    font-size: 2.8rem;
+    margin-bottom: 0.85rem;
 }
 
 .trait-title {
     font-weight: 600;
-    font-size: 1.25rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .trait-desc {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--body-text-color, #64748b);
     line-height: 1.6;
 }
@@ -117,23 +117,23 @@ comments: false
 /* 学习经历时间线 */
 .timeline {
     position: relative;
-    padding-left: 35px;
+    padding-left: 40px;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    left: 10px;
+    left: 11px;
     top: 0;
     bottom: 0;
-    width: 4px;
+    width: 5px;
     background: linear-gradient(180deg, var(--accent-color, #2563eb) 0%, #60a5fa 100%);
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 .timeline-item {
     position: relative;
-    padding-bottom: 2.5rem;
+    padding-bottom: 3rem;
 }
 
 .timeline-item:last-child {
@@ -142,10 +142,10 @@ comments: false
 
 .timeline-dot {
     position: absolute;
-    left: -30px;
+    left: -34px;
     top: 5px;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     background: var(--accent-color, #2563eb);
     border-radius: 50%;
     border: 4px solid rgba(255, 255, 255, 0.9);
@@ -157,26 +157,26 @@ comments: false
 }
 
 .timeline-date {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--accent-color, #2563eb);
     font-weight: 600;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .timeline-title {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .timeline-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--body-text-color, #64748b);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .timeline-desc {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--body-text-color, #64748b);
 }
 
@@ -189,8 +189,8 @@ comments: false
 
 .project-card {
     background: rgba(255, 255, 255, 0.85);
-    border-radius: 14px;
-    padding: 1.75rem;
+    border-radius: 16px;
+    padding: 2rem;
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     transition: transform 0.2s, box-shadow 0.2s;
     border-left: 5px solid var(--accent-color, #2563eb);
@@ -207,9 +207,9 @@ comments: false
 }
 
 .project-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.7rem;
 }
 
 .project-tags {
@@ -220,15 +220,15 @@ comments: false
 }
 
 .project-tag {
-    font-size: 0.9rem;
+    font-size: 1rem;
     background: rgba(37, 99, 235, 0.1);
     color: var(--accent-color, #2563eb);
-    padding: 0.3rem 0.8rem;
+    padding: 0.35rem 0.9rem;
     border-radius: 20px;
 }
 
 .project-desc {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--body-text-color, #64748b);
     line-height: 1.7;
 }
@@ -236,8 +236,8 @@ comments: false
 .project-link {
     display: inline-flex;
     align-items: center;
-    margin-top: 1rem;
-    font-size: 1rem;
+    margin-top: 1.2rem;
+    font-size: 1.1rem;
     color: var(--accent-color, #2563eb);
     text-decoration: none;
     font-weight: 500;
@@ -260,8 +260,8 @@ comments: false
 
 .skill-category-title {
     font-weight: 600;
-    font-size: 1.15rem;
-    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
     color: var(--body-text-color, #334155);
 }
 
@@ -274,11 +274,11 @@ comments: false
 .skill-tag {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     background: rgba(255, 255, 255, 0.85);
-    padding: 0.65rem 1.25rem;
-    border-radius: 10px;
-    font-size: 1rem;
+    padding: 0.75rem 1.4rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     transition: transform 0.2s, box-shadow 0.2s;
     backdrop-filter: blur(10px);
@@ -294,8 +294,8 @@ comments: false
 }
 
 .skill-level {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
 }
 
@@ -339,24 +339,22 @@ comments: false
 <div class="timeline">
     <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">2022.09 - 至今</div>
-        <div class="timeline-title">XX大学</div>
-        <div class="timeline-subtitle">计算机科学与技术专业 · 本科</div>
-        <div class="timeline-desc">GPA: 3.8/4.0 · 专业排名前10%</div>
+        <div class="timeline-date">2024.09 - 至今</div>
+        <div class="timeline-title">哈尔滨工业大学</div>
+        <div class="timeline-subtitle">人工智能专业 · 本科</div>
+        <div class="timeline-desc"></div>
     </div>
     <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">2019.09 - 2022.06</div>
-        <div class="timeline-title">XX中学</div>
+        <div class="timeline-date">2021.09 - 2024.06</div>
+        <div class="timeline-title">汕头市潮阳实验学校</div>
         <div class="timeline-subtitle">理科方向</div>
-        <div class="timeline-desc">省级优秀学生 · 数学竞赛二等奖</div>
+        <div class="timeline-desc">信息竞赛二等奖</div>
     </div>
     <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">2016.09 - 2019.06</div>
-        <div class="timeline-title">XX初中</div>
-        <div class="timeline-subtitle">初中教育</div>
-        <div class="timeline-desc">校级三好学生</div>
+        <div class="timeline-date">2018.09 - 2021.06</div>
+        <div class="timeline-title">汕头市潮阳实验初中</div>
     </div>
 </div>
 </section>
@@ -366,6 +364,25 @@ comments: false
 <h2 class="section-title">💼 项目经历</h2>
 <div class="projects-grid">
     <div class="project-card">
+        <div class="project-title">无人机机械臂远程抓取控制</div>
+        <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Arduino</span>
+            <span class="project-tag">舵机控制</span>
+        </div>
+        <div class="project-desc">构建地面站，远程控制机上机械臂抓取物品。团队作品获CADC国家一等奖。</div>
+    </div>
+    <div class="project-card">
+        <div class="project-title">在线英文语音ai评测</div>
+        <div class="project-tags">
+            <span class="project-tag">go</span>
+            <span class="project-tag">nginx</span>
+            <span class="project-tag">WebSocket</span>
+        </div>
+        <div class="project-desc">前后端搭建完整web，配置和部署讯飞API，实时评测用户提供的语音。</div>
+        <a href="#" class="project-link">查看项目 →</a>
+    </div>
+    <div class="project-card">
         <div class="project-title">个人博客系统</div>
         <div class="project-tags">
             <span class="project-tag">Hugo</span>
@@ -373,27 +390,7 @@ comments: false
             <span class="project-tag">GitHub Pages</span>
         </div>
         <div class="project-desc">基于 Hugo 静态站点生成器搭建的个人博客，支持 Markdown 写作、代码高亮、暗黑模式等功能。</div>
-        <a href="#" class="project-link">查看项目 →</a>
-    </div>
-    <div class="project-card">
-        <div class="project-title">在线商城平台</div>
-        <div class="project-tags">
-            <span class="project-tag">React</span>
-            <span class="project-tag">Node.js</span>
-            <span class="project-tag">MongoDB</span>
-        </div>
-        <div class="project-desc">全栈电商项目，实现用户认证、商品管理、购物车、订单支付等完整功能。</div>
-        <a href="#" class="project-link">查看项目 →</a>
-    </div>
-    <div class="project-card">
-        <div class="project-title">数据可视化大屏</div>
-        <div class="project-tags">
-            <span class="project-tag">Vue</span>
-            <span class="project-tag">ECharts</span>
-            <span class="project-tag">WebSocket</span>
-        </div>
-        <div class="project-desc">实时数据可视化展示系统，支持多种图表类型、数据大屏自适应布局。</div>
-        <a href="#" class="project-link">查看项目 →</a>
+        <a href="https://github.com/Ceritor-Hanio/Ceritor-Hanio.github.io" class="project-link">查看项目 →</a>
     </div>
 </div>
 </section>
@@ -419,16 +416,13 @@ comments: false
             <span class="skill-tag"><span class="skill-level level-expert"></span>Vue</span>
             <span class="skill-tag"><span class="skill-level level-advanced"></span>Next.js</span>
             <span class="skill-tag"><span class="skill-level level-advanced"></span>Tailwind CSS</span>
-            <span class="skill-tag"><span class="skill-level level-intermediate"></span>Three.js</span>
         </div>
     </div>
     <div class="skill-category">
         <div class="skill-category-title">后端 & 数据库</div>
         <div class="skill-tags">
             <span class="skill-tag"><span class="skill-level level-advanced"></span>Node.js</span>
-            <span class="skill-tag"><span class="skill-level level-advanced"></span>Express</span>
             <span class="skill-tag"><span class="skill-level level-advanced"></span>MySQL</span>
-            <span class="skill-tag"><span class="skill-level level-intermediate"></span>MongoDB</span>
             <span class="skill-tag"><span class="skill-level level-intermediate"></span>Redis</span>
         </div>
     </div>
@@ -438,8 +432,6 @@ comments: false
             <span class="skill-tag"><span class="skill-level level-expert"></span>Git</span>
             <span class="skill-tag"><span class="skill-level level-advanced"></span>Docker</span>
             <span class="skill-tag"><span class="skill-level level-advanced"></span>Linux</span>
-            <span class="skill-tag"><span class="skill-level level-intermediate"></span>CI/CD</span>
-            <span class="skill-tag"><span class="skill-level level-intermediate"></span>AWS</span>
         </div>
     </div>
 </div>
