@@ -1,8 +1,8 @@
 ---
 title: 蒙特卡洛
 description: 
-slug: 
-date: 2022-03-06 00:00:00+0000
+slug: 蒙特卡洛
+date: 2025-03-06 00:00:00+0000
 categories:
     - 技术博客
 tags:

@@ -2,7 +2,7 @@
 title: 机器学习西瓜书 第一二章
 description: 
 slug: 机器学习西瓜书 第一二章
-date: 2022-03-06 00:00:00+0000
+date: 2025-03-07 00:00:00+0000
 categories:
     - 技术博客
 tags:
