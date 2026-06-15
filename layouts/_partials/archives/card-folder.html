@@ -44,7 +44,7 @@
 
 {{- /* 5. Render: collapsible <details> for nested, plain <div> for top-level */ -}}
 {{- if $isCollapsible -}}
-    <details open class="archives-card archives-card-collapsible">
+    <details class="archives-card archives-card-collapsible">
         <summary class="archives-card-header">
             <span class="archives-card-chevron">{{ partial "helper/icon" "chevron-right" }}</span>
             <h3 class="archives-card-title">{{ $name }}</h3>

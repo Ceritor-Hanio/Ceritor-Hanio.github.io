@@ -182,14 +182,15 @@ body.sidebar-resizing {
     }
 }
 
-/* ===== Archives Card Grid ===== */
+/* ===== Archives Card Stack ===== */
 
-// ---- Top-level card grid ----
+// ---- Top-level: single column, limited width, centered ----
 .archives-card-grid {
     margin-top: var(--spacing-lg);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-lg);
+    max-width: 860px;
 }
 
 // ---- Individual folder card ----
@@ -198,23 +199,33 @@ body.sidebar-resizing {
     border: 1px solid var(--card-border-color);
     border-radius: var(--card-border-radius);
     padding: var(--spacing-lg);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease;
 
     &:hover {
         border-color: var(--card-text-color-secondary);
     }
 
-    // Nested cards shrink padding and reduce visual weight
+    // Depth 1 — subtle tint
     .archives-card {
         padding: var(--spacing-md);
         border: 1px solid var(--card-separator-color);
         border-radius: calc(var(--card-border-radius) - 2px);
+        background: color-mix(in srgb, var(--card-background) 96%, var(--card-text-color-main) 4%);
+
+        // Depth 2
+        .archives-card {
+            background: color-mix(in srgb, var(--card-background) 92%, var(--card-text-color-main) 8%);
+
+            // Depth 3+
+            .archives-card {
+                background: color-mix(in srgb, var(--card-background) 87%, var(--card-text-color-main) 13%);
+            }
+        }
     }
 }
 
 // ---- Collapsible card (<details>) ----
 .archives-card-collapsible {
-    // Remove default <details> marker
     > summary {
         list-style: none;
         cursor: pointer;
@@ -224,12 +235,10 @@ body.sidebar-resizing {
         }
     }
 
-    // Chevron rotation when open
     &[open] > summary .archives-card-chevron svg {
         transform: rotate(90deg);
     }
 
-    // Card body padding
     .archives-card-body {
         padding-top: var(--spacing-xs);
     }
@@ -272,7 +281,6 @@ body.sidebar-resizing {
     white-space: nowrap;
     color: var(--card-text-color-main);
 
-    // Smaller heading for nested cards
     .archives-card .archives-card & {
         font-size: 1.4rem;
         font-weight: 600;
@@ -344,12 +352,8 @@ body.sidebar-resizing {
     font-size: 1.2rem;
 }
 
-// ---- Responsive: single column on small screens ----
+// ---- Responsive ----
 @include respond(md) {
-    .archives-card-grid {
-        grid-template-columns: 1fr;
-    }
-
     .archives-card-subgrid {
         grid-template-columns: 1fr;
     }
