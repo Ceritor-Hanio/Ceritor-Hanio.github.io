@@ -1,0 +1,98 @@
+{{- /* Recursive partial: renders one node in the archives directory tree.
+       Parameters (dict):
+         name   - display name of this directory
+         prefix - path relative to content/post/, with trailing slash (e.g. "实践/计算机/")
+         pages  - all post pages whose .File.Dir starts with post/<prefix>
+         NOTE: .File.Dir may use backslashes on Windows, so we normalize with replace "\\" "/"
+*/ -}}
+{{- $name   := .name -}}
+{{- $prefix := .prefix -}}
+{{- $pages  := .pages -}}
+{{- $postPrefix := print "post/" $prefix -}}
+
+{{- /* 1. Direct articles: pages whose normalized .File.Dir equals $postPrefix */ -}}
+{{- $direct := slice -}}
+{{- range $pages -}}
+    {{- if eq (replace .File.Dir "\\" "/") $postPrefix -}}
+        {{- $direct = $direct | append . -}}
+    {{- end -}}
+{{- end -}}
+
+{{- /* 2. Subdirectory pages: pages deeper than this directory */ -}}
+{{- $subPages := slice -}}
+{{- range $pages -}}
+    {{- $normDir := replace .File.Dir "\\" "/" -}}
+    {{- if and (strings.HasPrefix $normDir $postPrefix) (ne $normDir $postPrefix) -}}
+        {{- $subPages = $subPages | append . -}}
+    {{- end -}}
+{{- end -}}
+
+{{- /* 3. Immediate child directory names (deduplicated) */ -}}
+{{- $children := slice -}}
+{{- range $subPages -}}
+    {{- $rel := strings.TrimPrefix $postPrefix (replace .File.Dir "\\" "/") -}}
+    {{- $first := index (strings.Split $rel "/") 0 -}}
+    {{- if and (ne $first "") (not (in $children $first)) -}}
+        {{- $children = $children | append $first -}}
+    {{- end -}}
+{{- end -}}
+
+{{- /* 4. Total count */ -}}
+{{- $total := add (len $direct) (len $subPages) -}}
+
+{{- /* 5. Render */ -}}
+{{- if gt (len $children) 0 -}}
+    <details open class="archives-tree-folder">
+        <summary class="archives-tree-header">
+            <span class="archives-tree-icon">{{ partial "helper/icon" "chevron-right" }}</span>
+            <span class="archives-tree-name">{{ $name }}</span>
+            <span class="archives-tree-count">{{ $total }}</span>
+        </summary>
+        <div class="archives-tree-content">
+            {{- /* Direct articles in this directory */ -}}
+            {{- range $direct -}}
+                <a href="{{ .RelPermalink }}" class="archives-tree-article">
+                    <span class="archives-article-title">{{ .Title }}</span>
+                    <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
+                        {{- .Date | time.Format (default "Jan 02, 2006" .Site.Params.dateFormat.published) -}}
+                    </time>
+                </a>
+            {{- end -}}
+            {{- /* Recursively render child directories */ -}}
+            {{- range sort $children -}}
+                {{- $childName := . -}}
+                {{- $childPrefix := print $prefix $childName "/" -}}
+                {{- $childPostPrefix := print "post/" $childPrefix -}}
+                {{- $childPages := slice -}}
+                {{- range $subPages -}}
+                    {{- if strings.HasPrefix (replace .File.Dir "\\" "/") $childPostPrefix -}}
+                        {{- $childPages = $childPages | append . -}}
+                    {{- end -}}
+                {{- end -}}
+                {{- partial "archives/tree-node.html" (dict
+                    "name"   $childName
+                    "prefix" $childPrefix
+                    "pages"  $childPages
+                ) -}}
+            {{- end -}}
+        </div>
+    </details>
+{{- else -}}
+    <div class="archives-tree-folder archives-tree-leaf">
+        <div class="archives-tree-header">
+            <span class="archives-tree-icon leaf-icon"></span>
+            <span class="archives-tree-name">{{ $name }}</span>
+            <span class="archives-tree-count">{{ $total }}</span>
+        </div>
+        <div class="archives-tree-content">
+            {{- range $direct -}}
+                <a href="{{ .RelPermalink }}" class="archives-tree-article">
+                    <span class="archives-article-title">{{ .Title }}</span>
+                    <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
+                        {{- .Date | time.Format (default "Jan 02, 2006" .Site.Params.dateFormat.published) -}}
+                    </time>
+                </a>
+            {{- end -}}
+        </div>
+    </div>
+{{- end -}}

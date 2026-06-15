@@ -181,3 +181,152 @@ body.sidebar-resizing {
         user-select: none;
     }
 }
+
+/* ===== Archives Tree View ===== */
+
+.archives-tree {
+    margin-top: var(--spacing-lg);
+}
+
+// ---- Folder node (collapsible via <details> or static <div>) ----
+.archives-tree-folder {
+    margin-top: var(--spacing-xs);
+}
+
+// Collapsible folders: use <details>
+details.archives-tree-folder {
+    // Remove default marker
+    > summary {
+        list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    // Rotate chevron when open
+    &[open] > summary .archives-tree-icon svg {
+        transform: rotate(90deg);
+    }
+}
+
+// ---- Folder header (name + count badge) ----
+.archives-tree-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--card-text-color-main);
+    transition: background-color 0.15s ease;
+
+    &:hover {
+        background-color: var(--card-background-selected);
+    }
+}
+
+.archives-tree-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.2s ease;
+    }
+}
+
+// Leaf folders use a small filled circle instead of chevron
+.leaf-icon {
+    &::before {
+        content: "";
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--card-text-color-tertiary);
+    }
+}
+
+// Leaf folder header is not clickable
+.archives-tree-leaf .archives-tree-header {
+    cursor: default;
+}
+
+.archives-tree-name {
+    flex: 1;
+    font-weight: 600;
+    font-size: 1.5rem;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.archives-tree-count {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: var(--card-text-color-tertiary);
+    background-color: var(--code-background-color);
+    padding: 1px 7px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+// ---- Indented content area (with tree line) ----
+.archives-tree-content {
+    border-left: 1px dashed var(--card-separator-color);
+    margin-left: 10px;
+    padding-left: var(--spacing-lg);
+}
+
+// ---- Article link row ----
+.archives-tree-article {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    margin: 1px 0;
+    text-decoration: none;
+    color: var(--card-text-color-main);
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+        background-color: var(--card-background-selected);
+    }
+
+    .archives-article-title {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 1.4rem;
+    }
+
+    time {
+        flex-shrink: 0;
+        color: var(--card-text-color-tertiary);
+        font-size: 1.2rem;
+    }
+}
+
+// ---- Responsive adjustments ----
+@include respond(sm) {
+    .archives-tree-content {
+        margin-left: 8px;
+        padding-left: var(--spacing-md);
+    }
+
+    .archives-tree-name {
+        font-size: 1.4rem;
+    }
+}

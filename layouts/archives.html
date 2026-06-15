@@ -1,0 +1,52 @@
+{{- /* Archives page: folder-structured tree view of all posts.
+       Overrides theme's layouts/archives.html.
+       Uses recursive partial "archives/tree-node.html" for rendering. */ -}}
+{{ define "body-class" }}template-archives{{ end }}
+
+{{ define "main" }}
+    <header>
+        <h2 class="section-title">{{ .Title }}</h2>
+    </header>
+
+    {{- /* Collect all post pages, sorted by date descending */ -}}
+    {{- $pages := where .Site.RegularPages "Section" "post" -}}
+    {{- $pages = $pages.ByDate.Reverse -}}
+
+    {{- /* Extract unique top-level directory names from file paths.
+           .File.Dir may use backslashes on Windows, normalize to forward slashes. */ -}}
+    {{- $topDirs := slice -}}
+    {{- range $pages -}}
+        {{- /* Normalize: replace \ with /, then trim "post/" prefix and trailing / */ -}}
+        {{- $rel := replace .File.Dir "\\" "/" -}}
+        {{- $rel = strings.TrimPrefix "post/" $rel -}}
+        {{- $rel = strings.TrimSuffix "/" $rel -}}
+        {{- if ne $rel "" -}}
+            {{- $first := index (strings.Split $rel "/") 0 -}}
+            {{- if not (in $topDirs $first) -}}
+                {{- $topDirs = $topDirs | append $first -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+
+    <div class="archives-tree">
+        {{- range sort $topDirs -}}
+            {{- $dirName := . -}}
+            {{- $dirPrefix := print $dirName "/" -}}
+            {{- /* Collect all pages under this top-level directory (normalize backslashes) */ -}}
+            {{- $dirPages := slice -}}
+            {{- range $pages -}}
+                {{- $normDir := replace .File.Dir "\\" "/" -}}
+                {{- if strings.HasPrefix $normDir (print "post/" $dirPrefix) -}}
+                    {{- $dirPages = $dirPages | append . -}}
+                {{- end -}}
+            {{- end -}}
+            {{- partial "archives/tree-node.html" (dict
+                "name"   $dirName
+                "prefix" $dirPrefix
+                "pages"  $dirPages
+            ) -}}
+        {{- end -}}
+    </div>
+
+    {{ partialCached "footer/footer" . }}
+{{ end }}
