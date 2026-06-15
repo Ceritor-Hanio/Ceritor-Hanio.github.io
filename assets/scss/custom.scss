@@ -88,6 +88,28 @@
     }
 }
 
+/* ===== TOC: Remove card style, blend into sidebar ===== */
+.widget--toc {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+// Remove card-wrapper padding so TOC sits flush in sidebar
+.widget.toc {
+    padding: 0;
+
+    .widget-icon {
+        display: none;
+    }
+
+    .widget-title {
+        font-size: 1.4rem;
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
 /* ===== TOC Scrollbar (subtle/hidden) ===== */
 .toc-nav {
     // Firefox
