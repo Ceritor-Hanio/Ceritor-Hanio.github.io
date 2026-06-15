@@ -340,6 +340,10 @@ body.sidebar-resizing {
     &:hover {
         background-color: var(--card-background-selected);
         text-decoration: none;
+
+        .archives-card-post-date {
+            opacity: 1;
+        }
     }
 }
 
@@ -356,6 +360,8 @@ body.sidebar-resizing {
     flex-shrink: 0;
     color: var(--card-text-color-tertiary);
     font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
 }
 
 // ---- Responsive ----
