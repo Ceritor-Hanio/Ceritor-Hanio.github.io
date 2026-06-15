@@ -338,9 +338,16 @@ body.sidebar-resizing {
 // ---- Sub-folder grid inside a card ----
 .archives-card-subgrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-md);
+}
+
+// Allow 2-column sub-folders on wide screens
+@media (min-width: 1200px) {
+    .archives-card-subgrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 // ---- Article list inside a card ----
@@ -409,10 +416,6 @@ body.sidebar-resizing {
 // Tablet and below: stack to single column
 @media (max-width: 1023px) {
     .archives-card-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .archives-card-subgrid {
         grid-template-columns: 1fr;
     }
 }
