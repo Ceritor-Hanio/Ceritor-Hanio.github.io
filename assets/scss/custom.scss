@@ -211,11 +211,11 @@ body.sidebar-resizing {
 
 /* ===== Archives Card Stack ===== */
 
-// ---- Top-level: 2-column grid (理论 | 实践), stacks on mobile ----
+// ---- Top-level: 2-column grid, columns grow to fit longest title ----
 .archives-card-grid {
     margin-top: var(--spacing-lg);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
     gap: var(--spacing-md);
     width: 100%;
 }
@@ -227,7 +227,6 @@ body.sidebar-resizing {
     border-radius: var(--card-border-radius);
     padding: var(--spacing-md);
     transition: border-color 0.2s ease;
-    min-width: 0; // allow grid to shrink below content size
 
     &:hover {
         border-color: var(--card-text-color-secondary);
@@ -308,9 +307,6 @@ body.sidebar-resizing {
     font-size: 1.7rem;
     font-weight: 700;
     margin: 0;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
     color: var(--card-text-color-main);
 
@@ -338,7 +334,7 @@ body.sidebar-resizing {
 // ---- Sub-folder grid inside a card ----
 .archives-card-subgrid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(min-content, 1fr);
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-md);
 }
@@ -346,7 +342,7 @@ body.sidebar-resizing {
 // Allow 2-column sub-folders on wide screens
 @media (min-width: 1200px) {
     .archives-card-subgrid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(min-content, 1fr));
     }
 }
 
