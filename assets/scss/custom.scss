@@ -12,7 +12,6 @@
     max-width: var(--right-sidebar-custom-width, var(--right-sidebar-max-width));
     min-width: 0;
     flex-shrink: 0;
-    position: relative;
     transition: width 0.3s ease, max-width 0.3s ease, opacity 0.3s ease;
 }
 
@@ -22,7 +21,6 @@
     max-width: var(--right-sidebar-custom-width, var(--right-sidebar-max-width));
     min-width: 0;
     flex-shrink: 0;
-    position: relative;
     transition: width 0.3s ease, max-width 0.3s ease, opacity 0.3s ease;
 }
 
