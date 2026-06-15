@@ -48,4 +48,39 @@
     </div>
 
     {{ partialCached "footer/footer" . }}
+
+    <script>
+        (function () {
+            const tooltip = document.createElement('div');
+            tooltip.className = 'archives-date-tooltip';
+            document.body.appendChild(tooltip);
+
+            let currentLink = null;
+
+            document.querySelector('.archives-card-grid').addEventListener('mouseover', function (e) {
+                const link = e.target.closest('.archives-card-post-link');
+                if (!link) return;
+
+                const timeEl = link.querySelector('.archives-card-post-date');
+                if (!timeEl) return;
+
+                currentLink = link;
+                tooltip.textContent = timeEl.textContent.trim();
+                tooltip.classList.add('visible');
+            });
+
+            document.querySelector('.archives-card-grid').addEventListener('mousemove', function (e) {
+                if (!currentLink) return;
+                tooltip.style.left = e.clientX + 'px';
+                tooltip.style.top = e.clientY + 'px';
+            });
+
+            document.querySelector('.archives-card-grid').addEventListener('mouseout', function (e) {
+                const link = e.target.closest('.archives-card-post-link');
+                if (link && e.relatedTarget && link.contains(e.relatedTarget)) return;
+                currentLink = null;
+                tooltip.classList.remove('visible');
+            });
+        })();
+    </script>
 {{ end }}

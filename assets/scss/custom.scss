@@ -340,10 +340,6 @@ body.sidebar-resizing {
     &:hover {
         background-color: var(--card-background-selected);
         text-decoration: none;
-
-        .archives-card-post-date {
-            opacity: 1;
-        }
     }
 }
 
@@ -357,11 +353,29 @@ body.sidebar-resizing {
 }
 
 .archives-card-post-date {
-    flex-shrink: 0;
-    color: var(--card-text-color-tertiary);
+    // Hidden from inline layout; shown as mouse-following tooltip via JS
+    display: none;
+}
+
+// ---- Floating date tooltip (follows cursor on article links) ----
+.archives-date-tooltip {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    padding: 4px 10px;
     font-size: 1.2rem;
+    line-height: 1.6;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.78);
+    border-radius: 4px;
+    white-space: nowrap;
+    transform: translate(12px, 16px); // offset from cursor
+    transition: opacity 0.1s ease;
     opacity: 0;
-    transition: opacity 0.2s ease;
+
+    &.visible {
+        opacity: 1;
+    }
 }
 
 // ---- Responsive ----
