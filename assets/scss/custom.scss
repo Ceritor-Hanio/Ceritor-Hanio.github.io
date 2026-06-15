@@ -1,3 +1,116 @@
 /*
-    You can add your own custom styles here.
+    Custom styles for the blog.
 */
+
+/* ===== Collapsible TOC Widget ===== */
+.widget.toc {
+    details {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        overflow: hidden;
+
+        &[open] {
+            .toc-toggle-icon svg {
+                transform: rotate(90deg);
+            }
+        }
+
+        summary {
+            list-style: none;
+            padding: var(--spacing-md) var(--card-padding);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+
+            &::-webkit-details-marker {
+                display: none;
+            }
+
+            .widget-icon {
+                flex-shrink: 0;
+
+                svg {
+                    width: var(--widget-icon-size);
+                    height: var(--widget-icon-size);
+                    stroke-width: 1.6;
+                    color: var(--body-text-color);
+                }
+            }
+
+            .widget-title {
+                flex: 1;
+                margin: 0;
+                font-size: 1.4rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: var(--card-text-color-tertiary);
+            }
+
+            .toc-toggle-icon {
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    stroke-width: 1.33;
+                    transition: transform 0.3s ease;
+                    color: var(--body-text-color);
+                }
+            }
+        }
+    }
+
+    .widget--toc {
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        border-top: 1.5px solid var(--card-separator-color);
+    }
+}
+
+/* ===== Resizable Right Sidebar ===== */
+.right-sidebar {
+    position: relative;
+    // Override theme's max-width with a CSS variable for dynamic resizing
+    max-width: var(--right-sidebar-custom-width, var(--right-sidebar-max-width));
+
+    .sidebar-resize-handle {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        cursor: col-resize;
+        z-index: 10;
+        transition: background-color 0.2s ease;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 2px;
+            top: 10%;
+            bottom: 10%;
+            width: 2px;
+            border-radius: 1px;
+            background-color: var(--card-separator-color);
+            transition: background-color 0.2s ease;
+        }
+
+        &:hover,
+        &.active {
+            &::after {
+                background-color: var(--accent-color);
+            }
+        }
+    }
+}
+
+// Prevent text selection while resizing
+body.sidebar-resizing {
+    user-select: none;
+    cursor: col-resize;
+}
