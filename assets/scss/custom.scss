@@ -2,6 +2,33 @@
     Custom styles for the blog.
 */
 
+/* ===== Full-width container: remove theme's max-width at all breakpoints ===== */
+.container.extended,
+.container.compact {
+    max-width: none;
+}
+
+@include respond(md) {
+    .container.extended,
+    .container.compact {
+        max-width: none;
+    }
+}
+
+@include respond(lg) {
+    .container.extended,
+    .container.compact {
+        max-width: none;
+    }
+}
+
+@include respond(xl) {
+    .container.extended,
+    .container.compact {
+        max-width: none;
+    }
+}
+
 /* ===== Right Sidebar: Collapse & Resize ===== */
 
 // Override theme's max-width with correct specificity.
