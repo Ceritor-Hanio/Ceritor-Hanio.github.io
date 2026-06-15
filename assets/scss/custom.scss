@@ -359,7 +359,8 @@ body.sidebar-resizing {
 }
 
 // ---- Responsive ----
-@include respond(md) {
+// Tablet and below: stack to single column
+@media (max-width: 1023px) {
     .archives-card-grid {
         grid-template-columns: 1fr;
     }
