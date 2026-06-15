@@ -1,18 +1,98 @@
 <script>
 (function() {
-    // ===== Right Sidebar Resize =====
+    const lgBreakpoint = 1024;
+
+    // ===== Sidebar Collapse Toggle =====
+    function initSidebarToggle() {
+        const sidebar = document.querySelector('.right-sidebar');
+        if (!sidebar) return;
+        if (window.innerWidth < lgBreakpoint) return;
+
+        const STORAGE_KEY = 'right-sidebar-collapsed';
+
+        // Create toggle button
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'sidebar-toggle-btn';
+        toggleBtn.setAttribute('aria-label', 'Toggle sidebar');
+        toggleBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>';
+        document.body.appendChild(toggleBtn);
+
+        // Position button at the left edge of the sidebar
+        function positionToggleBtn() {
+            if (sidebar.classList.contains('collapsed')) {
+                toggleBtn.style.right = '0px';
+                toggleBtn.classList.add('sidebar-collapsed');
+            } else {
+                const sidebarRect = sidebar.getBoundingClientRect();
+                const sidebarWidth = sidebarRect.width;
+                toggleBtn.style.right = sidebarWidth + 'px';
+                toggleBtn.classList.remove('sidebar-collapsed');
+            }
+        }
+
+        // Restore collapsed state
+        const savedCollapsed = localStorage.getItem(STORAGE_KEY);
+        if (savedCollapsed === 'true') {
+            sidebar.classList.add('collapsed');
+        }
+        // Delay to let layout settle, then position button
+        setTimeout(positionToggleBtn, 100);
+
+        // Toggle on click
+        toggleBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('collapsed');
+            const isCollapsed = sidebar.classList.contains('collapsed');
+            localStorage.setItem(STORAGE_KEY, isCollapsed);
+
+            if (isCollapsed) {
+                // Collapsing: move button to right edge immediately
+                toggleBtn.style.right = '0px';
+                toggleBtn.classList.add('sidebar-collapsed');
+            } else {
+                // Expanding: wait for transition, then measure and position
+                toggleBtn.classList.remove('sidebar-collapsed');
+                setTimeout(function() {
+                    var w = sidebar.offsetWidth;
+                    if (!w) {
+                        // Fallback: read CSS custom property
+                        var v = getComputedStyle(sidebar).getPropertyValue('--right-sidebar-custom-width').trim();
+                        if (!v) v = getComputedStyle(sidebar).getPropertyValue('--right-sidebar-max-width').trim();
+                        w = parseFloat(v) || 300;
+                    }
+                    toggleBtn.style.right = w + 'px';
+                }, 350);
+            }
+        });
+
+        // Reposition on resize and after collapse/expand transition
+        window.addEventListener('resize', function() {
+            if (window.innerWidth < lgBreakpoint) {
+                toggleBtn.style.display = 'none';
+            } else {
+                toggleBtn.style.display = '';
+                setTimeout(positionToggleBtn, 350); // after transition
+            }
+        });
+
+        // Re-position after sidebar width changes (resize)
+        const observer = new MutationObserver(function() {
+            if (!sidebar.classList.contains('collapsed')) {
+                positionToggleBtn();
+            }
+        });
+        observer.observe(sidebar, { attributes: true, attributeFilter: ['style', 'class'] });
+    }
+
+    // ===== Sidebar Resize =====
     function initSidebarResize() {
         const sidebar = document.querySelector('.right-sidebar');
         if (!sidebar) return;
-
-        // Don't add resize on mobile (sidebar is hidden)
-        const lgBreakpoint = 1024;
         if (window.innerWidth < lgBreakpoint) return;
 
         // Create resize handle
         const handle = document.createElement('div');
         handle.className = 'sidebar-resize-handle';
-        sidebar.prepend(handle);
+        sidebar.appendChild(handle);
 
         const STORAGE_KEY = 'right-sidebar-width';
         const MIN_WIDTH = 200;
@@ -29,7 +109,9 @@
         let startWidth = 0;
 
         handle.addEventListener('mousedown', function(e) {
+            if (sidebar.classList.contains('collapsed')) return;
             e.preventDefault();
+            e.stopPropagation();
             isResizing = true;
             startX = e.clientX;
             startWidth = sidebar.offsetWidth;
@@ -59,21 +141,16 @@
             const currentWidth = sidebar.offsetWidth;
             localStorage.setItem(STORAGE_KEY, currentWidth);
         });
-
-        // Handle window resize — remove handle on mobile
-        window.addEventListener('resize', function() {
-            if (window.innerWidth < lgBreakpoint) {
-                handle.style.display = 'none';
-            } else {
-                handle.style.display = '';
-            }
-        });
     }
 
-    // Run after DOM is ready
+    // ===== Init =====
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSidebarResize);
+        document.addEventListener('DOMContentLoaded', function() {
+            initSidebarToggle();
+            initSidebarResize();
+        });
     } else {
+        initSidebarToggle();
         initSidebarResize();
     }
 })();

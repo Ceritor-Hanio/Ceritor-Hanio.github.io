@@ -1,21 +1,14 @@
 {{ if (.Context.Scratch.Get "TOCEnabled") }}
     <section class="widget toc">
-        <details open>
-            <summary class="widget-toc-summary">
-                <div class="widget-icon">
-                    {{ partial "helper/icon" "hash" }}
-                </div>
-                <h2 class="widget-title section-title">{{ T "article.tableOfContents" }}</h2>
-                <span class="toc-toggle-icon">
-                    {{ partial "helper/icon" "chevron-right" }}
-                </span>
-            </summary>
+        <div class="widget-icon">
+            {{ partial "helper/icon" "hash" }}
+        </div>
+        <h2 class="widget-title section-title">{{ T "article.tableOfContents" }}</h2>
 
-            <div class="widget--toc">
-                <nav class="toc-nav" id="TableOfContents">
-                    {{ partial "article/components/toc" .Context | safeHTML }}
-                </nav>
-            </div>
-        </details>
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                {{ partial "article/components/toc" .Context | safeHTML }}
+            </nav>
+        </div>
     </section>
 {{ end }}
