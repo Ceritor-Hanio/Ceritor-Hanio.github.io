@@ -90,6 +90,40 @@
     }
 }
 
+/* ===== TOC Scrollbar (subtle/hidden) ===== */
+.toc-nav {
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+
+    // WebKit
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 2px;
+        transition: background 0.3s ease;
+    }
+
+    &:hover {
+        scrollbar-color: var(--card-separator-color) transparent;
+
+        &::-webkit-scrollbar-thumb {
+            background: var(--card-separator-color);
+        }
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--card-text-color-tertiary);
+    }
+}
+
 /* ===== Resize Handle ===== */
 .sidebar-resize-handle {
     position: absolute;
