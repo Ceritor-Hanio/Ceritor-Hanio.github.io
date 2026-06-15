@@ -189,8 +189,8 @@ body.sidebar-resizing {
     margin-top: var(--spacing-lg);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-lg);
-    max-width: 860px;
+    gap: var(--spacing-md);
+    width: 100%;
 }
 
 // ---- Individual folder card ----
@@ -198,27 +198,33 @@ body.sidebar-resizing {
     background: var(--card-background);
     border: 1px solid var(--card-border-color);
     border-radius: var(--card-border-radius);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     transition: border-color 0.2s ease;
+    min-width: 0; // allow grid to shrink below content size
 
     &:hover {
         border-color: var(--card-text-color-secondary);
     }
 
-    // Depth 1 — accent tint, semi-transparent
+    // Depth 1 — red-ish semi-transparent tint
     .archives-card {
-        padding: var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-md);
         border: 1px solid var(--card-separator-color);
         border-radius: calc(var(--card-border-radius) - 2px);
-        background: color-mix(in srgb, var(--card-background) 93%, var(--accent-color) 7%);
+        background: color-mix(in srgb, var(--card-background) 92%, #e74c3c 8%);
 
-        // Depth 2
+        // Depth 2 — amber/gold tint
         .archives-card {
-            background: color-mix(in srgb, var(--card-background) 86%, var(--accent-color) 14%);
+            background: color-mix(in srgb, var(--card-background) 90%, #f39c12 10%);
 
-            // Depth 3+
+            // Depth 3 — green tint
             .archives-card {
-                background: color-mix(in srgb, var(--card-background) 77%, var(--accent-color) 23%);
+                background: color-mix(in srgb, var(--card-background) 88%, #27ae60 12%);
+
+                // Depth 4+ — blue tint
+                .archives-card {
+                    background: color-mix(in srgb, var(--card-background) 85%, #2980b9 15%);
+                }
             }
         }
     }
@@ -356,7 +362,6 @@ body.sidebar-resizing {
 @include respond(md) {
     .archives-card-grid {
         grid-template-columns: 1fr;
-        max-width: 100%;
     }
 
     .archives-card-subgrid {
@@ -366,7 +371,7 @@ body.sidebar-resizing {
 
 @include respond(sm) {
     .archives-card {
-        padding: var(--spacing-md);
+        padding: var(--spacing-sm);
     }
 
     .archives-card-title {
