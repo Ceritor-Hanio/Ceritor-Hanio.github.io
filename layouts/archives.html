@@ -1,6 +1,6 @@
-{{- /* Archives page: folder-structured tree view of all posts.
+{{- /* Archives page: card-grid folder layout of all posts.
        Overrides theme's layouts/archives.html.
-       Uses recursive partial "archives/tree-node.html" for rendering. */ -}}
+       Uses recursive partial "archives/card-folder.html" for rendering. */ -}}
 {{ define "body-class" }}template-archives{{ end }}
 
 {{ define "main" }}
@@ -16,7 +16,6 @@
            .File.Dir may use backslashes on Windows, normalize to forward slashes. */ -}}
     {{- $topDirs := slice -}}
     {{- range $pages -}}
-        {{- /* Normalize: replace \ with /, then trim "post/" prefix and trailing / */ -}}
         {{- $rel := replace .File.Dir "\\" "/" -}}
         {{- $rel = strings.TrimPrefix "post/" $rel -}}
         {{- $rel = strings.TrimSuffix "/" $rel -}}
@@ -28,11 +27,10 @@
         {{- end -}}
     {{- end -}}
 
-    <div class="archives-tree">
+    <div class="archives-card-grid">
         {{- range sort $topDirs -}}
             {{- $dirName := . -}}
             {{- $dirPrefix := print $dirName "/" -}}
-            {{- /* Collect all pages under this top-level directory (normalize backslashes) */ -}}
             {{- $dirPages := slice -}}
             {{- range $pages -}}
                 {{- $normDir := replace .File.Dir "\\" "/" -}}
@@ -40,7 +38,7 @@
                     {{- $dirPages = $dirPages | append . -}}
                 {{- end -}}
             {{- end -}}
-            {{- partial "archives/tree-node.html" (dict
+            {{- partial "archives/card-folder.html" (dict
                 "name"   $dirName
                 "prefix" $dirPrefix
                 "pages"  $dirPages

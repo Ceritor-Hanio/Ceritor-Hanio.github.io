@@ -1,9 +1,8 @@
-{{- /* Recursive partial: renders one node in the archives directory tree.
+{{- /* Recursive partial: renders one folder as a card.
        Parameters (dict):
          name   - display name of this directory
          prefix - path relative to content/post/, with trailing slash (e.g. "实践/计算机/")
          pages  - all post pages whose .File.Dir starts with post/<prefix>
-         NOTE: .File.Dir may use backslashes on Windows, so we normalize with replace "\\" "/"
 */ -}}
 {{- $name   := .name -}}
 {{- $prefix := .prefix -}}
@@ -40,25 +39,16 @@
 {{- /* 4. Total count */ -}}
 {{- $total := add (len $direct) (len $subPages) -}}
 
-{{- /* 5. Render */ -}}
-{{- if gt (len $children) 0 -}}
-    <details open class="archives-tree-folder">
-        <summary class="archives-tree-header">
-            <span class="archives-tree-icon">{{ partial "helper/icon" "chevron-right" }}</span>
-            <span class="archives-tree-name">{{ $name }}</span>
-            <span class="archives-tree-count">{{ $total }}</span>
-        </summary>
-        <div class="archives-tree-content">
-            {{- /* Direct articles in this directory */ -}}
-            {{- range $direct -}}
-                <a href="{{ .RelPermalink }}" class="archives-tree-article">
-                    <span class="archives-article-title">{{ .Title }}</span>
-                    <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
-                        {{- .Date | time.Format (default "Jan 02, 2006" .Site.Params.dateFormat.published) -}}
-                    </time>
-                </a>
-            {{- end -}}
-            {{- /* Recursively render child directories */ -}}
+{{- /* 5. Render card */ -}}
+<div class="archives-card">
+    <div class="archives-card-header">
+        <h3 class="archives-card-title">{{ $name }}</h3>
+        <span class="archives-card-count">{{ $total }}</span>
+    </div>
+
+    {{- /* Sub-folder grid (if any children) */ -}}
+    {{- if gt (len $children) 0 -}}
+        <div class="archives-card-subgrid">
             {{- range sort $children -}}
                 {{- $childName := . -}}
                 {{- $childPrefix := print $prefix $childName "/" -}}
@@ -69,30 +59,29 @@
                         {{- $childPages = $childPages | append . -}}
                     {{- end -}}
                 {{- end -}}
-                {{- partial "archives/tree-node.html" (dict
+                {{- partial "archives/card-folder.html" (dict
                     "name"   $childName
                     "prefix" $childPrefix
                     "pages"  $childPages
                 ) -}}
             {{- end -}}
         </div>
-    </details>
-{{- else -}}
-    <div class="archives-tree-folder archives-tree-leaf">
-        <div class="archives-tree-header">
-            <span class="archives-tree-icon leaf-icon"></span>
-            <span class="archives-tree-name">{{ $name }}</span>
-            <span class="archives-tree-count">{{ $total }}</span>
-        </div>
-        <div class="archives-tree-content">
+    {{- end -}}
+
+    {{- /* Direct articles in this folder */ -}}
+    {{- if gt (len $direct) 0 -}}
+        <ul class="archives-card-posts">
             {{- range $direct -}}
-                <a href="{{ .RelPermalink }}" class="archives-tree-article">
-                    <span class="archives-article-title">{{ .Title }}</span>
-                    <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
-                        {{- .Date | time.Format (default "Jan 02, 2006" .Site.Params.dateFormat.published) -}}
-                    </time>
-                </a>
+                <li class="archives-card-post">
+                    <a href="{{ .RelPermalink }}" class="archives-card-post-link">
+                        <span class="archives-card-post-title">{{ .Title }}</span>
+                        <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' class="archives-card-post-date">
+                            {{- .Date | time.Format (default "Jan 02, 2006" .Site.Params.dateFormat.published) -}}
+                        </time>
+                    </a>
+                </li>
             {{- end -}}
-        </div>
-    </div>
-{{- end -}}
+        </ul>
+    {{- end -}}
+</div>
+{{- /* End card */ -}}
