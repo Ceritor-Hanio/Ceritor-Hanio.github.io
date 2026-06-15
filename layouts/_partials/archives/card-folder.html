@@ -3,10 +3,12 @@
          name   - display name of this directory
          prefix - path relative to content/post/, with trailing slash (e.g. "实践/计算机/")
          pages  - all post pages whose .File.Dir starts with post/<prefix>
+         depth  - nesting level (0 = top-level always-open, >=1 = collapsible)
 */ -}}
 {{- $name   := .name -}}
 {{- $prefix := .prefix -}}
 {{- $pages  := .pages -}}
+{{- $depth  := default 0 .depth -}}
 {{- $postPrefix := print "post/" $prefix -}}
 
 {{- /* 1. Direct articles: pages whose normalized .File.Dir equals $postPrefix */ -}}
@@ -38,50 +40,97 @@
 
 {{- /* 4. Total count */ -}}
 {{- $total := add (len $direct) (len $subPages) -}}
+{{- $isCollapsible := ge $depth 1 -}}
 
-{{- /* 5. Render card */ -}}
-<div class="archives-card">
-    <div class="archives-card-header">
-        <h3 class="archives-card-title">{{ $name }}</h3>
-        <span class="archives-card-count">{{ $total }}</span>
-    </div>
-
-    {{- /* Sub-folder grid (if any children) */ -}}
-    {{- if gt (len $children) 0 -}}
-        <div class="archives-card-subgrid">
-            {{- range sort $children -}}
-                {{- $childName := . -}}
-                {{- $childPrefix := print $prefix $childName "/" -}}
-                {{- $childPostPrefix := print "post/" $childPrefix -}}
-                {{- $childPages := slice -}}
-                {{- range $subPages -}}
-                    {{- if strings.HasPrefix (replace .File.Dir "\\" "/") $childPostPrefix -}}
-                        {{- $childPages = $childPages | append . -}}
+{{- /* 5. Render: collapsible <details> for nested, plain <div> for top-level */ -}}
+{{- if $isCollapsible -}}
+    <details open class="archives-card archives-card-collapsible">
+        <summary class="archives-card-header">
+            <span class="archives-card-chevron">{{ partial "helper/icon" "chevron-right" }}</span>
+            <h3 class="archives-card-title">{{ $name }}</h3>
+            <span class="archives-card-count">{{ $total }}</span>
+        </summary>
+        <div class="archives-card-body">
+            {{- if gt (len $children) 0 -}}
+                <div class="archives-card-subgrid">
+                    {{- range sort $children -}}
+                        {{- $childName := . -}}
+                        {{- $childPrefix := print $prefix $childName "/" -}}
+                        {{- $childPostPrefix := print "post/" $childPrefix -}}
+                        {{- $childPages := slice -}}
+                        {{- range $subPages -}}
+                            {{- if strings.HasPrefix (replace .File.Dir "\\" "/") $childPostPrefix -}}
+                                {{- $childPages = $childPages | append . -}}
+                            {{- end -}}
+                        {{- end -}}
+                        {{- partial "archives/card-folder.html" (dict
+                            "name"   $childName
+                            "prefix" $childPrefix
+                            "pages"  $childPages
+                            "depth"  (add $depth 1)
+                        ) -}}
                     {{- end -}}
-                {{- end -}}
-                {{- partial "archives/card-folder.html" (dict
-                    "name"   $childName
-                    "prefix" $childPrefix
-                    "pages"  $childPages
-                ) -}}
+                </div>
+            {{- end -}}
+            {{- if gt (len $direct) 0 -}}
+                <ul class="archives-card-posts">
+                    {{- range $direct -}}
+                        <li class="archives-card-post">
+                            <a href="{{ .RelPermalink }}" class="archives-card-post-link">
+                                <span class="archives-card-post-title">{{ .Title }}</span>
+                                <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' class="archives-card-post-date">
+                                    {{- .Date | time.Format (default "Jan 02, 2006" .Site.Params.dateFormat.published) -}}
+                                </time>
+                            </a>
+                        </li>
+                    {{- end -}}
+                </ul>
             {{- end -}}
         </div>
-    {{- end -}}
-
-    {{- /* Direct articles in this folder */ -}}
-    {{- if gt (len $direct) 0 -}}
-        <ul class="archives-card-posts">
-            {{- range $direct -}}
-                <li class="archives-card-post">
-                    <a href="{{ .RelPermalink }}" class="archives-card-post-link">
-                        <span class="archives-card-post-title">{{ .Title }}</span>
-                        <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' class="archives-card-post-date">
-                            {{- .Date | time.Format (default "Jan 02, 2006" .Site.Params.dateFormat.published) -}}
-                        </time>
-                    </a>
-                </li>
+    </details>
+{{- else -}}
+    <div class="archives-card">
+        <div class="archives-card-header">
+            <h3 class="archives-card-title">{{ $name }}</h3>
+            <span class="archives-card-count">{{ $total }}</span>
+        </div>
+        <div class="archives-card-body">
+            {{- if gt (len $children) 0 -}}
+                <div class="archives-card-subgrid">
+                    {{- range sort $children -}}
+                        {{- $childName := . -}}
+                        {{- $childPrefix := print $prefix $childName "/" -}}
+                        {{- $childPostPrefix := print "post/" $childPrefix -}}
+                        {{- $childPages := slice -}}
+                        {{- range $subPages -}}
+                            {{- if strings.HasPrefix (replace .File.Dir "\\" "/") $childPostPrefix -}}
+                                {{- $childPages = $childPages | append . -}}
+                            {{- end -}}
+                        {{- end -}}
+                        {{- partial "archives/card-folder.html" (dict
+                            "name"   $childName
+                            "prefix" $childPrefix
+                            "pages"  $childPages
+                            "depth"  (add $depth 1)
+                        ) -}}
+                    {{- end -}}
+                </div>
             {{- end -}}
-        </ul>
-    {{- end -}}
-</div>
+            {{- if gt (len $direct) 0 -}}
+                <ul class="archives-card-posts">
+                    {{- range $direct -}}
+                        <li class="archives-card-post">
+                            <a href="{{ .RelPermalink }}" class="archives-card-post-link">
+                                <span class="archives-card-post-title">{{ .Title }}</span>
+                                <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' class="archives-card-post-date">
+                                    {{- .Date | time.Format (default "Jan 02, 2006" .Site.Params.dateFormat.published) -}}
+                                </time>
+                            </a>
+                        </li>
+                    {{- end -}}
+                </ul>
+            {{- end -}}
+        </div>
+    </div>
+{{- end -}}
 {{- /* End card */ -}}

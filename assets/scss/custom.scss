@@ -212,6 +212,45 @@ body.sidebar-resizing {
     }
 }
 
+// ---- Collapsible card (<details>) ----
+.archives-card-collapsible {
+    // Remove default <details> marker
+    > summary {
+        list-style: none;
+        cursor: pointer;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    // Chevron rotation when open
+    &[open] > summary .archives-card-chevron svg {
+        transform: rotate(90deg);
+    }
+
+    // Card body padding
+    .archives-card-body {
+        padding-top: var(--spacing-xs);
+    }
+}
+
+// ---- Chevron icon for collapsible cards ----
+.archives-card-chevron {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.2s ease;
+    }
+}
+
 // ---- Card header: folder name + count badge ----
 .archives-card-header {
     display: flex;
