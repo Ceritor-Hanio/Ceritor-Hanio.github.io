@@ -184,11 +184,11 @@ body.sidebar-resizing {
 
 /* ===== Archives Card Stack ===== */
 
-// ---- Top-level: single column, limited width, centered ----
+// ---- Top-level: 2-column grid (理论 | 实践), stacks on mobile ----
 .archives-card-grid {
     margin-top: var(--spacing-lg);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
     max-width: 860px;
 }
@@ -205,20 +205,20 @@ body.sidebar-resizing {
         border-color: var(--card-text-color-secondary);
     }
 
-    // Depth 1 — subtle tint
+    // Depth 1 — accent tint, semi-transparent
     .archives-card {
         padding: var(--spacing-md);
         border: 1px solid var(--card-separator-color);
         border-radius: calc(var(--card-border-radius) - 2px);
-        background: color-mix(in srgb, var(--card-background) 96%, var(--card-text-color-main) 4%);
+        background: color-mix(in srgb, var(--card-background) 93%, var(--accent-color) 7%);
 
         // Depth 2
         .archives-card {
-            background: color-mix(in srgb, var(--card-background) 92%, var(--card-text-color-main) 8%);
+            background: color-mix(in srgb, var(--card-background) 86%, var(--accent-color) 14%);
 
             // Depth 3+
             .archives-card {
-                background: color-mix(in srgb, var(--card-background) 87%, var(--card-text-color-main) 13%);
+                background: color-mix(in srgb, var(--card-background) 77%, var(--accent-color) 23%);
             }
         }
     }
@@ -354,6 +354,11 @@ body.sidebar-resizing {
 
 // ---- Responsive ----
 @include respond(md) {
+    .archives-card-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
     .archives-card-subgrid {
         grid-template-columns: 1fr;
     }
